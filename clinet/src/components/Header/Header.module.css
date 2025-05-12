@@ -1,0 +1,66 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	padding: 20px;
+	background-color: white;
+	overflow-x: hidden; /* Только горизонтальное скрытие */
+}
+
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logoNavWrapper {
+	display: flex;
+	align-items: center;
+	position: relative; /* Для абсолютного позиционирования меню */
+}
+
+.logo {
+	height: 70px;
+	width: auto;
+	z-index: 2; /* Логотип поверх меню */
+	position: relative;
+}
+
+.nav {
+	display: flex;
+	gap: 25px;
+	position: absolute;
+	left: 100%; /* Начальная позиция справа от логотипа */
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0; /* Начальное состояние - прозрачное */
+}
+
+.navLink {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	transition: opacity 0.3s;
+}
+
+.navLink:hover {
+	opacity: 0.6;
+}
+
+.menuButton {
+	background: none;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+	/* позиция где меню */
+	padding: 5px 400px;   
+	transition: opacity 0.3s;
+	margin-left: auto;
+}
+
+.menuButton:hover {
+	opacity: 0.6;
+}

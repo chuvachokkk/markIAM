@@ -8,6 +8,83 @@
 	background-color: white;
 }
 
+.formBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998; /* Ниже формы, но выше остального контента */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.formBackdrop.active {
+  opacity: 1;
+  pointer-events: auto; /* Позволяет кликать по затемнению */
+}
+
+/* Стили для формы */
+.contactFormOverlay {
+  position: fixed;
+  top: 0;
+  right: -500px; /* Начальное положение за экраном */
+  width: 400px;
+  height: 100vh;
+  background: white;
+  z-index: 999; /* Выше затемнения */
+  transition: right 0.3s ease;
+  padding: 40px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactFormOverlay.active {
+  right: 0; /* Форма выезжает на экран */
+}
+
+.contactForm {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.contactForm input,
+.contactForm textarea {
+	padding: 12px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+}
+
+.contactForm textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+.contactButton {
+	position: absolute;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgb(112, 112, 112);
+	color: white;
+	border: none;
+	padding: 22px 32px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s;
+	white-space: nowrap;
+	min-width: max-content;
+	margin-left: 30px;
+}
+
+.contactButton:hover {
+	background-color: rgb(132, 197, 33);
+}
+
 .headerContainer {
 	display: flex;
 	align-items: center;

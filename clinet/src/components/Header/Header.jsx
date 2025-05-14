@@ -57,12 +57,16 @@ export default function Header() {
 						</a>
 					</nav>
 				</div>
-				<button
-					onClick={() => setFormOpen(true)}
-					className={styles.contactButton}
-				>
-					Связь с нами
-				</button>
+				{/*  Обёртка с перспективой (создаёт эффект 3D) */}
+				<div className={styles.cubeWrapper} onClick={() => setFormOpen(true)}>
+					{/* Сам "куб", который будет вращаться при наведении */}
+					<div className={styles.cube}>
+						{/* Передняя грань куба (изначально видимая) */}
+						<div className={`${styles.face} ${styles.front}`}>Связь с нами</div>
+						{/* Верхняя грань куба (появляется при вращении) */}
+						<div className={`${styles.face} ${styles.top}`}>Связь с нами</div>
+					</div>
+				</div>
 			</header>
 			<div
 				className={`${styles.formBackdrop} ${formOpen ? styles.active : ''}`}

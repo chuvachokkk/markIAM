@@ -33,12 +33,14 @@ export default function Header() {
 							<img src={logo} alt='Логотип' className={styles.logo} />
 						</a>
 
-						<button
+						<div
 							onClick={() => setMenuOpen(!menuOpen)}
-							className={styles.menuButton}
+							className={`${styles.menuButton3D} ${
+								menuOpen ? styles.open : ''
+							}`}
 						>
-							{menuOpen ? '✕' : 'Menu'}
-						</button>
+							{menuOpen ? '✕ ' : 'Меню'}
+						</div>
 					</div>
 
 					{/* Раскрывающееся меню */}

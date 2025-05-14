@@ -206,7 +206,7 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: white;
-	border-radius: 6px;
+	border-radius: 0px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Объёмность */
 }
 
@@ -221,3 +221,37 @@
 	background-color: #84c521; /* Зелёный цвет */
 	transform: rotateX(90deg) translateZ(30px); /* Располагаем как верхнюю грань куба */
 }
+
+.menuButton3D {
+	background-color: #ffffff;
+	color: #222;
+	padding: 17px 20px;
+	border-radius: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	font-size: 16px;
+	text-transform: uppercase;
+	user-select: none;
+	font-weight: 600;
+	border: 2px solid #707070;
+}
+
+/* .menuButton3D:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+	background-color: #f0f0f0;
+} */
+
+.menuButton3D:active {
+	transform: translateY(1px);
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Когда меню открыто — меняем цвет */
+.menuButton3D.open {
+	background-color: #84c521;
+	color: white;
+	border-color: #84c521;
+}
+

@@ -46,10 +46,10 @@ export default function Header() {
 					{/* Раскрывающееся меню */}
 					<nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
 						<a href='#services' className={styles.navLink}>
-							Тут что то
+							что тут надо ?
 						</a>
 						<a href='#work' className={styles.navLink}>
-							Тут что то
+							что тут надо ?
 						</a>
 						<a href='#about' className={styles.navLink}>
 							О нас

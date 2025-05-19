@@ -1,0 +1,38 @@
+import { useEffect, useState } from 'react'
+import logo1 from '../../assets/logo1.jpg'
+import styles from './RotatingSquare.module.css'
+
+export default function RotatingSquare() {
+	const [rotation, setRotation] = useState({ x: 0, y: 0 })
+
+	useEffect(() => {
+		const handleMouseMove = e => {
+			const centerX = window.innerWidth / 2
+			const centerY = window.innerHeight / 2
+
+			const rotateY = (e.clientX - centerX) * 0.02
+			const rotateX = (centerY - e.clientY) * 0.02
+
+			setRotation({ x: rotateX, y: rotateY })
+		}
+
+		window.addEventListener('mousemove', handleMouseMove)
+		return () => window.removeEventListener('mousemove', handleMouseMove)
+	}, [])
+
+	return (
+		<div className={styles.container}>
+			<div
+				className={styles.square}
+				style={{
+					transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+				}}
+			>
+				<div className={styles.front}>
+					<img src={logo1} alt='logo1' className={styles.logo} />
+				</div>
+				<div className={styles.back}>{logo1}</div>
+			</div>
+		</div>
+	)
+}

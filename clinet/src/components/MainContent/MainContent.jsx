@@ -83,8 +83,8 @@ export default function MainContent() {
 		<div className={styles.container}>
 			{/* Hero-текст (слоган) */}
 			<div className={styles.hero} ref={heroRef}>
-				<h1 className={styles.heroTitle}>DIGITAL</h1>
-				<p className={styles.heroSubtitle}>агентство полного цикла</p>
+				<h1 className={styles.heroTitle}>Тут нужно что то КРУТОЕ</h1>
+				<p className={styles.heroSubtitle}>описание)</p>
 			</div>
 
 			{/* Секции с услугами */}

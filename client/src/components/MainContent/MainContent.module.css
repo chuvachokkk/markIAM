@@ -186,24 +186,81 @@
 	}
 
 	.sections {
-		padding: 2rem; /* Уменьшаем отступы */
-		gap: 100px; /* Уменьшаем отступ между секциями */
+		padding: 100vh 1rem 2rem;
+		gap: 100px;
 	}
 
 	.section {
-		max-width: 100%; /* Секция занимает всю ширину экрана */
-		padding: 2rem; /* Уменьшаем внутренние отступы */
+		max-width: 100%;
+		padding: 2rem;
+		margin: 0;
+		transform: none !important;
+	}
+
+	.section:nth-child(2n),
+	.section:nth-child(2n + 1) {
+		transform: none !important;
+		margin: 0;
 	}
 
 	.title {
-		font-size: 2.5rem; /* Уменьшаем размер заголовка */
+		font-size: 2.5rem;
 	}
 
 	.section h3 {
-		font-size: 1.5rem; /* Уменьшаем размер подзаголовка */
+		font-size: 1.5rem;
 	}
 
 	.desc {
-		font-size: 1.3rem; /* Уменьшаем размер текста описания */
+		font-size: 1.3rem;
+	}
+
+	/* Добавляем плавное появление секций при скролле */
+	.section {
+		opacity: 0;
+		transform: translateY(50px);
+		transition: all 0.8s ease;
+	}
+
+	.section.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.section.hidden {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+}
+
+/* Стили для очень маленьких экранов */
+@media (max-width: 480px) {
+	.heroTitle {
+		font-size: 18vw;
+	}
+
+	.heroSubtitle {
+		font-size: 7vw;
+	}
+
+	.sections {
+		padding: 100vh 0.5rem 1rem;
+		gap: 50px;
+	}
+
+	.section {
+		padding: 1.5rem;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.section h3 {
+		font-size: 1.3rem;
+	}
+
+	.desc {
+		font-size: 1.1rem;
 	}
 }

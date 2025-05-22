@@ -84,17 +84,62 @@
 
 	.content {
 		gap: 2rem;
+		grid-template-columns: 1fr;
 	}
 
 	.section h3 {
 		font-size: 1.5rem;
+		text-align: center;
 	}
 
 	.section p {
 		font-size: 1rem;
+		text-align: center;
+	}
+
+	.social {
+		justify-content: center;
 	}
 
 	.social a {
 		font-size: 1rem;
+		padding: 0.5rem 1rem;
+		background: rgba(50, 205, 50, 0.1);
+		border-radius: 8px;
+		transition: all 0.3s ease;
+	}
+
+	.social a:hover {
+		background: rgba(50, 205, 50, 0.2);
+		transform: translateY(-2px);
+	}
+
+	.icon {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.footer {
+		padding: 2rem 0 1rem;
+	}
+
+	.section h3 {
+		font-size: 1.3rem;
+	}
+
+	.section p {
+		font-size: 0.9rem;
+	}
+
+	.social a {
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+	}
+
+	.icon {
+		width: 18px;
+		height: 18px;
 	}
 }

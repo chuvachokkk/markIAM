@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/logo1.jpg'
 import styles from './Header.module.css'
 
@@ -117,9 +118,9 @@ export default function Header() {
 				<div className={styles.headerContainer}>
 					{/* Группа логотипа и кнопки */}
 					<div className={styles.logoMenuGroup}>
-						<a href='/'>
+						<Link to='/'>
 							<img src={logo} alt='Логотип' className={styles.logo} />
-						</a>
+						</Link>
 
 						<div
 							onClick={() => setMenuOpen(!menuOpen)}
@@ -147,15 +148,15 @@ export default function Header() {
 						>
 							Работы
 						</a>
-						<a
-							href='#about'
+						<Link
+							to='/about'
 							className={styles.navLink}
 							onClick={() => setMenuOpen(false)}
 						>
 							О нас
-						</a>
+						</Link>
 						<a
-							href='#contact'
+							href='/about'
 							className={styles.navLink}
 							onClick={() => setMenuOpen(false)}
 						>

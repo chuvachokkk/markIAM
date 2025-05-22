@@ -21,7 +21,7 @@
 	transform: translate(-50%, -50%);
 	text-align: center;
 	z-index: 10;
-	transition: opacity 0.1s ease; /* Плавный переход для opacity */
+	transition: opacity 0.1s ease;
 }
 
 .heroTitle {
@@ -58,13 +58,13 @@
 
 /* Основной контейнер для всех секций */
 .sections {
-	padding: 100vh 0 4rem; /* Отступ сверху на всю высоту экрана, снизу 4rem */
-	max-width: 1400px; /* Ограничиваем максимальную ширину контейнера */
-	margin: 0 auto; /* Центрируем контейнер по горизонтали */
-	display: flex; /* Включаем flexbox для управления расположением элементов */
-	flex-direction: column; /* Располагаем элементы вертикально */
-	gap: 200px; /* Задаем отступ между секциями */
-	position: relative; /* Устанавливаем относительное позиционирование */
+	padding: 100vh 0 4rem;
+	max-width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 200px;
+	position: relative;
 }
 
 /* Стили для каждой отдельной секции */

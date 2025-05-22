@@ -1,277 +1,515 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Подключение шрифтов */
+@font-face {
+	font-family: 'DlyShirnyh'; /* Название шрифта для использования в CSS */
+	src: url('../../assets/dlyShirnyh.otf') format('opentype'); /* Путь к файлу шрифта и его формат */
+	font-weight: normal; /* Обычная толщина шрифта */
+	font-style: normal; /* Обычный стиль шрифта */
 }
 
+@font-face {
+	font-family: 'DlyMalenkih'; /* Название шрифта для использования в CSS */
+	src: url('../../assets/dlyMalenkih.otf') format('opentype'); /* Путь к файлу шрифта и его формат */
+	font-weight: normal; /* Обычная толщина шрифта */
+	font-style: normal; /* Обычный стиль шрифта */
+}
+
+/* Сброс стандартных стилей браузера */
+* {
+	margin: 0; /* Убираем внешние отступы */
+	padding: 0; /* Убираем внутренние отступы */
+	box-sizing: border-box; /* Размер элемента включает padding и border */
+}
+
+/* Стили для шапки сайта */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 20px 0;
-  background-color: rgba(0, 0, 0, 0.5);
+	position: fixed; /* Фиксированное позиционирование */
+	top: 0; /* Прикрепляем к верху экрана */
+	left: 0; /* Прикрепляем к левому краю */
+	width: 100%; /* Растягиваем на всю ширину */
+	z-index: 100; /* Уровень наложения элементов */
+	padding: 20px 0; /* Отступы сверху и снизу */
+	background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
 }
 
 .formBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 998;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
 }
 
 .formBackdrop.active {
-  opacity: 1;
-  pointer-events: auto;
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .contactFormOverlay {
-  position: fixed;
-  top: 0;
-  right: -500px;
-  width: 400px;
-  height: 100vh;
-  background: white;
-  z-index: 999;
-  transition: right 0.3s ease;
-  padding: 40px;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+	position: fixed;
+	top: 0;
+	right: -600px;
+	width: 500px;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.95);
+	z-index: 999;
+	transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	padding: 60px;
+	box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	font-family: 'DlyMalenkih', sans-serif;
 }
 
 .contactFormOverlay.active {
-  right: 0;
+	right: 0;
+}
+
+.contactFormOverlay h2 {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 32px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 40px;
+	color: #32cd32;
 }
 
 .contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
 }
 
 .contactForm input,
 .contactForm textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  font-size: 16px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(50, 205, 50, 0.3);
+	color: #ffffff;
+	font-size: 18px;
+	transition: all 0.3s ease;
+	font-family: 'DlyMalenkih', sans-serif;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+	outline: none;
+	border-color: #32cd32;
+	background: rgba(255, 255, 255, 0.15);
 }
 
 .contactForm textarea {
-  min-height: 120px;
-  resize: vertical;
+	min-height: 180px;
+	resize: vertical;
+}
+
+.contactForm input::placeholder,
+.contactForm textarea::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+	font-family: 'DlyMalenkih', sans-serif;
+}
+
+.closeFormButton {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	background: none;
+	border: none;
+	color: #32cd32;
+	font-size: 28px;
+	cursor: pointer;
+	padding: 5px;
+	transition: all 0.3s ease;
+	font-family: 'DlyShirnyh', sans-serif;
+}
+
+.closeFormButton:hover {
+	transform: rotate(90deg);
+	color: #ffffff;
+}
+
+.submitButton {
+	background-color: #32cd32;
+	color: #000000;
+	border: none;
+	padding: 20px 40px;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-weight: 600;
+	margin-top: 20px;
+	font-family: 'DlyShirnyh', sans-serif;
+}
+
+.submitButton:hover {
+	background-color: #ffffff;
+	transform: translateY(-2px);
+}
+
+.submitButton:active {
+	transform: translateY(0);
 }
 
 .contactButton {
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(112, 112, 112);
-  color: white;
-  border: none;
-  padding: 22px 32px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s;
-  white-space: nowrap;
-  min-width: max-content;
-  margin-left: 30px;
+	position: absolute;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgb(112, 112, 112);
+	color: white;
+	border: none;
+	padding: 22px 32px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s;
+	white-space: nowrap;
+	min-width: max-content;
+	margin-left: 30px;
 }
 
 .contactButton:hover {
-  background-color: rgb(132, 197, 33);
+	background-color: rgb(132, 197, 33);
 }
 
+/* Контейнер для содержимого шапки */
 .headerContainer {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
 }
 
+/* Группа логотипа и кнопки меню */
 .logoMenuGroup {
-  display: flex;
-  align-items: center;
-  gap: 0;
+	display: flex;
+	align-items: center;
+	gap: 0;
 }
 
+/* Стили для логотипа */
 .logo {
-  height: 70px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+	height: 70px;
+	width: auto;
+	display: block;
+	object-fit: contain;
 }
 
+/* Стили для кнопки меню */
 .menuButton {
-  background: none;
-  border: none;
-  font-size: 16px;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 5px 0;
-  position: relative;
-  white-space: nowrap;
+	background: none;
+	border: none;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 5px 0;
+	position: relative;
+	white-space: nowrap;
 }
 
 .menuButton::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: black;
-  transition: width 0.3s;
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background-color: black;
+	transition: width 0.3s;
 }
 
 .menuButton:hover::after {
-  width: 100%;
+	width: 100%;
 }
 
+/* Стили для навигационного меню */
 .nav {
-  display: flex;
-  gap: 25px;
-  margin-left: 20px;
-  max-width: 0;
-  overflow: hidden;
-  transition: max-width 0.4s ease, opacity 0.3s ease;
-  opacity: 0;
+	display: flex;
+	gap: 25px;
+	margin-left: 20px;
+	max-width: 0;
+	overflow: hidden;
+	transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.3s ease 0.2s;
+	opacity: 0;
+	white-space: nowrap;
+	font-family: 'DlyShirnyh', sans-serif;
 }
 
+/* Активное состояние меню */
 .nav.active {
-  max-width: 500px;
-  opacity: 1;
+	max-width: 800px;
+	opacity: 1;
+	transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
+/* Стили для ссылок в меню */
 .navLink {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  white-space: nowrap;
-  color:  #32cd32; /* Белый цвет текста по умолчанию */
-  position: relative;/*  Для анимации подчёркивания */
-  transition: color 0.3s ease, transform 0.3s ease;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	color: #32cd32;
+	position: relative;
+	transition: color 0.3s ease, transform 0.3s ease;
+	font-family: 'DlyShirnyh', sans-serif;
 }
 
+/* Эффект подчеркивания для ссылок */
 .navLink::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #32cd32; /* Зелёное подчёркивание */
-  transition: width 0.3s ease;
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #32cd32;
+	transition: width 0.3s ease;
 }
 
+/* Эффект при наведении на ссылки */
 .navLink:hover {
-  color: #32cd32; /* Зелёный цвет при наведении */
-  transform: translateY(-2px); /* Лёгкий подъём */
+	color: #32cd32;
+	transform: translateY(-2px);
 }
 
-/* .navLink:hover::after {
-  width: 100%; 
-} */
-
+/* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
-  .logo {
-    height: 40px;
-  }
+	.logo {
+		height: 40px;
+	}
 
-  .nav {
-    gap: irait;
-  }
+	.nav {
+		gap: 15px;
+	}
 
-  .navLink {
-    font-size: 12px;
-  }
+	.nav.active {
+		max-width: 600px;
+	}
 
-  .headerContainer {
-    padding: 0 10px;
-  }
+	.navLink {
+		font-size: 12px;
+	}
+
+	.headerContainer {
+		padding: 0 10px;
+	}
+
+	.contactFormOverlay {
+		width: 100%;
+		right: -100%;
+		padding: 40px 20px;
+	}
+
+	.contactFormOverlay h2 {
+		font-size: 24px;
+		margin-bottom: 30px;
+	}
+
+	.contactForm input,
+	.contactForm textarea {
+		font-size: 16px;
+		padding: 15px;
+	}
+
+	.submitButton {
+		font-size: 16px;
+		padding: 15px 30px;
+	}
 }
 
+/* Стили для 3D кнопки "Связь с нами" */
 .cubeWrapper {
-  perspective: 1000px;
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 180px;
-  height: 60px;
-  cursor: pointer;
+	perspective: 1000px;
+	position: absolute;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 180px;
+	height: 60px;
+	cursor: pointer;
 }
 
 .cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform 0.5s;
 }
 
 .cubeWrapper:hover .cube {
-  transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
 }
 
 .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
-  border-radius: 0px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: white;
+	border-radius: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .front {
-  background-color: #1a1919;
-  transform: rotateX(0deg) translateZ(30px);
+	background-color: #1a1919;
+	transform: rotateX(0deg) translateZ(30px);
 }
 
 .top {
-  background-color: #32cd32;
-  transform: rotateX(90deg) translateZ(30px);
+	background-color: #32cd32;
+	transform: rotateX(90deg) translateZ(30px);
 }
 
+/* Стили для 3D кнопки "Меню" */
 .menuButton3D {
-  background-color: #32cd32;
-  color: #000000;
-  padding: 0 20px;
-  height: 70px;
-  border-radius: 0px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-size: 16px;
-  text-transform: uppercase;
-  user-select: none;
-  font-weight: 600;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
+	background-color: #32cd32; /* Зеленый цвет фона */
+	color: #000000; /* Черный цвет текста */
+	padding: 0 20px; /* Отступы слева и справа */
+	height: 70px; /* Высота кнопки */
+	border-radius: 0px; /* Убираем скругление углов */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для объема */
+	cursor: pointer; /* Курсор в виде руки при наведении */
+	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная анимация */
+	font-size: 16px; /* Размер шрифта */
+	text-transform: uppercase; /* Текст заглавными буквами */
+	user-select: none; /* Запрет выделения текста */
+	font-weight: 600; /* Жирность шрифта */
+	border: none; /* Убираем границу */
+	display: flex; /* Используем flexbox */
+	align-items: center; /* Выравниваем по центру по вертикали */
+	justify-content: center; /* Выравниваем по центру по горизонтали */
+	line-height: 1; /* Высота строки */
+	position: relative; /* Относительное позиционирование */
+	font-family: 'DlyShirnyh', sans-serif; /* Используем наш шрифт */
 }
 
+/* Убираем псевдоэлементы, так как текст теперь в контенте кнопки */
+.menuButton3D::before,
+.menuButton3D::after {
+	display: none;
+}
+
+/* Эффект нажатия на кнопку */
 .menuButton3D:active {
-  transform: translateY(1px);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+	transform: translateY(1px); /* Сдвиг вниз при нажатии */
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Уменьшаем тень */
 }
 
+/* Активное состояние кнопки */
 .menuButton3D.open {
-  background-color: #32cd32;
-  color: rgb(0, 0, 0);
+	background-color: #1a1919; /* Темный фон */
+	color: #ffffff; /* Белый текст */
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 414px) {
+	.header {
+		padding: 10px 0; /* Уменьшаем отступы шапки */
+	}
+
+	.headerContainer {
+		padding: 0 10px; /* Уменьшаем отступы контейнера */
+		justify-content: space-between; /* Распределяем элементы по краям */
+	}
+
+	.logo {
+		height: 40px; /* Уменьшаем размер логотипа */
+	}
+
+	.logoMenuGroup {
+		gap: 10px; /* Уменьшаем отступ между лого и кнопкой */
+	}
+
+	/* Стили для мобильного меню */
+	.nav {
+		position: fixed; /* Фиксированное позиционирование */
+		top: 0; /* Прикрепляем к верху */
+		left: 0; /* Прикрепляем к левому краю */
+		width: 100%; /* На всю ширину экрана */
+		height: 100vh; /* На всю высоту экрана */
+		background: rgba(0, 0, 0, 0.95); /* Полупрозрачный фон */
+		flex-direction: column; /* Вертикальное расположение */
+		justify-content: center; /* Центрируем по вертикали */
+		align-items: center; /* Центрируем по горизонтали */
+		gap: 30px; /* Увеличиваем отступы между пунктами */
+		padding: 20px; /* Добавляем отступы */
+		z-index: 99; /* Уровень наложения */
+		max-width: none; /* Убираем ограничение ширины */
+		opacity: 0; /* Начальная прозрачность */
+		pointer-events: none; /* Отключаем взаимодействие */
+		transition: opacity 0.3s ease; /* Плавная анимация */
+	}
+
+	.nav.active {
+		opacity: 1; /* Показываем меню */
+		pointer-events: auto; /* Включаем взаимодействие */
+	}
+
+	.navLink {
+		font-size: 24px; /* Увеличиваем размер шрифта */
+		color: #ffffff; /* Белый цвет текста */
+	}
+
+	.navLink:hover {
+		color: #32cd32; /* Зеленый цвет при наведении */
+	}
+
+	/* Стили для кнопки меню на мобильных */
+	.menuButton3D {
+		height: 50px; /* Уменьшаем высоту кнопки */
+		padding: 0 15px; /* Уменьшаем отступы */
+		font-size: 14px; /* Уменьшаем размер шрифта */
+	}
+
+	/* Стили для формы обратной связи на мобильных */
+	.contactFormOverlay {
+		width: 100%; /* На всю ширину экрана */
+		right: -100%; /* Скрываем за правым краем */
+		padding: 20px; /* Уменьшаем отступы */
+	}
+
+	.contactFormOverlay h2 {
+		font-size: 24px; /* Уменьшаем размер заголовка */
+		margin-bottom: 20px; /* Уменьшаем отступ */
+	}
+
+	.contactForm input,
+	.contactForm textarea {
+		font-size: 16px; /* Уменьшаем размер шрифта */
+		padding: 15px; /* Уменьшаем отступы */
+	}
+
+	.submitButton {
+		font-size: 16px; /* Уменьшаем размер шрифта */
+		padding: 15px 30px; /* Уменьшаем отступы */
+	}
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 360px) {
+	.logo {
+		height: 35px; /* Еще меньше логотип */
+	}
+
+	.menuButton3D {
+		height: 45px; /* Еще меньше кнопка */
+		padding: 0 10px; /* Меньше отступы */
+		font-size: 12px; /* Меньше шрифт */
+	}
+
+	.navLink {
+		font-size: 20px; /* Меньше размер пунктов меню */
+	}
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo1.jpg'
 import styles from './Header.module.css'
 
 export default function Header() {
@@ -39,22 +39,38 @@ export default function Header() {
 								menuOpen ? styles.open : ''
 							}`}
 						>
-							{menuOpen ? '✕ ' : 'Меню'}
+							Меню
 						</div>
 					</div>
 
 					{/* Раскрывающееся меню */}
 					<nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
-						<a href='#services' className={styles.navLink}>
-							что тут надо ?
+						<a
+							href='#services'
+							className={styles.navLink}
+							onClick={() => setMenuOpen(false)}
+						>
+							Услуги
 						</a>
-						<a href='#work' className={styles.navLink}>
-							что тут надо ?
+						<a
+							href='#work'
+							className={styles.navLink}
+							onClick={() => setMenuOpen(false)}
+						>
+							Работы
 						</a>
-						<a href='#about' className={styles.navLink}>
+						<a
+							href='#about'
+							className={styles.navLink}
+							onClick={() => setMenuOpen(false)}
+						>
 							О нас
 						</a>
-						<a href='#contact' className={styles.navLink}>
+						<a
+							href='#contact'
+							className={styles.navLink}
+							onClick={() => setMenuOpen(false)}
+						>
 							Контакты
 						</a>
 					</nav>
@@ -70,6 +86,7 @@ export default function Header() {
 					</div>
 				</div>
 			</header>
+
 			<div
 				className={`${styles.formBackdrop} ${formOpen ? styles.active : ''}`}
 				onClick={() => setFormOpen(false)}
@@ -109,7 +126,7 @@ export default function Header() {
 
 					<textarea
 						name='project'
-						placeholder='Опишите ваш проект (ТЗ)'
+						placeholder='Опишите ваш проект'
 						value={formData.project}
 						onChange={handleInputChange}
 						required

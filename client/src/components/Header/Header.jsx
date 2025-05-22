@@ -42,8 +42,8 @@ export default function Header() {
 	}
 
 	const sendToTelegram = async data => {
-		const BOT_TOKEN = '7644039066:AAEtYvFDi0t2czczLpjgahcnguyhqr40vts' // Замените на токен вашего бота
-		const CHAT_ID = '-4594398433' // Замените на ID чата, куда будут приходить сообщения
+		const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+		const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
 
 		const message = `
 Заявка с сайта:

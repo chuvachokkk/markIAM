@@ -513,3 +513,57 @@
 		font-size: 20px; /* Меньше размер пунктов меню */
 	}
 }
+
+.notification {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 1.5rem 2rem;
+	background: rgba(0, 0, 0, 0.95);
+	border: 1px solid rgba(50, 205, 50, 0.3);
+	border-radius: 8px;
+	color: #ffffff;
+	font-family: 'DlyMalenkih', sans-serif;
+	z-index: 1000;
+	transform: translateX(120%);
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 8px 32px rgba(50, 205, 50, 0.1);
+}
+
+.notification.active {
+	transform: translateX(0);
+}
+
+.notification.success {
+	border-color: rgba(50, 205, 50, 0.5);
+}
+
+.notification.error {
+	border-color: rgba(255, 0, 0, 0.3);
+}
+
+.notificationTitle {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+	color: #32cd32;
+}
+
+.notificationMessage {
+	font-size: 1rem;
+	opacity: 0.9;
+	line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+	.notification {
+		left: 20px;
+		right: 20px;
+		transform: translateY(-120%);
+	}
+
+	.notification.active {
+		transform: translateY(0);
+	}
+}

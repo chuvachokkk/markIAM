@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from '../../assets/logo1.jpg'
 import styles from './Header.module.css'
 
@@ -10,17 +10,105 @@ export default function Header() {
 		contact: '',
 		project: '',
 	})
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [notification, setNotification] = useState({
+		show: false,
+		type: '',
+		title: '',
+		message: '',
+	})
+
+	useEffect(() => {
+		if (notification.show) {
+			const timer = setTimeout(() => {
+				setNotification(prev => ({ ...prev, show: false }))
+			}, 5000)
+			return () => clearTimeout(timer)
+		}
+	}, [notification.show])
+
+	const showNotification = (type, title, message) => {
+		setNotification({
+			show: true,
+			type,
+			title,
+			message,
+		})
+	}
 
 	const handleInputChange = e => {
 		const { name, value } = e.target
 		setFormData(prev => ({ ...prev, [name]: value }))
 	}
 
-	const handleSubmit = e => {
+	const sendToTelegram = async data => {
+		const BOT_TOKEN = '7644039066:AAEtYvFDi0t2czczLpjgahcnguyhqr40vts' // Замените на токен вашего бота
+		const CHAT_ID = '-4594398433' // Замените на ID чата, куда будут приходить сообщения
+
+		const message = `
+Заявка с сайта:
+Имя: ${data.name}
+Контакты: ${data.contact}
+Проект: ${data.project}
+		`
+
+		try {
+			const response = await fetch(
+				`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						chat_id: CHAT_ID,
+						text: message,
+						parse_mode: 'HTML',
+					}),
+				}
+			)
+
+			if (!response.ok) {
+				throw new Error('Ошибка отправки сообщения')
+			}
+
+			return true
+		} catch (error) {
+			console.error('Ошибка:', error)
+			return false
+		}
+	}
+
+	const handleSubmit = async e => {
 		e.preventDefault()
-		// Здесь обработка отправки формы
-		console.log('Форма отправлена:', formData)
-		setFormOpen(false)
+		setIsSubmitting(true)
+
+		try {
+			const success = await sendToTelegram(formData)
+			if (success) {
+				showNotification(
+					'success',
+					'Успешно!',
+					'Спасибо! Ваша заявка отправлена.'
+				)
+				setFormData({ name: '', contact: '', project: '' })
+				setFormOpen(false)
+			} else {
+				showNotification(
+					'error',
+					'Ошибка',
+					'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
+				)
+			}
+		} catch (error) {
+			showNotification(
+				'error',
+				'Ошибка',
+				'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
+			)
+		} finally {
+			setIsSubmitting(false)
+		}
 	}
 
 	return (
@@ -113,6 +201,7 @@ export default function Header() {
 						value={formData.name}
 						onChange={handleInputChange}
 						required
+						disabled={isSubmitting}
 					/>
 
 					<input
@@ -122,6 +211,7 @@ export default function Header() {
 						value={formData.contact}
 						onChange={handleInputChange}
 						required
+						disabled={isSubmitting}
 					/>
 
 					<textarea
@@ -130,12 +220,26 @@ export default function Header() {
 						value={formData.project}
 						onChange={handleInputChange}
 						required
+						disabled={isSubmitting}
 					/>
 
-					<button type='submit' className={styles.submitButton}>
-						Отправить
+					<button
+						type='submit'
+						className={styles.submitButton}
+						disabled={isSubmitting}
+					>
+						{isSubmitting ? 'Отправка...' : 'Отправить'}
 					</button>
 				</form>
+			</div>
+
+			<div
+				className={`${styles.notification} ${
+					notification.show ? styles.active : ''
+				} ${notification.type === 'success' ? styles.success : styles.error}`}
+			>
+				<div className={styles.notificationTitle}>{notification.title}</div>
+				<div className={styles.notificationMessage}>{notification.message}</div>
 			</div>
 		</>
 	)

@@ -15,11 +15,11 @@ export default function Footer() {
 					</div>
 					<div className={styles.section}>
 						<h3>Контакты</h3>
-						<p>Email: bestpsyholog@gmail.com</p>
+						<p>Email: твояПочта@gmail.com</p>
 						<p>Телефон: +7 (914) 684-02-20</p>
 					</div>
 					<div className={styles.section}>
-						<h3>Свяжитесь с нами</h3>
+						<h3>Связь с нами</h3>
 						<div className={styles.social}>
 							<a
 								href='https://t.me/Flashnemo666'

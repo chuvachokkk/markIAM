@@ -10,8 +10,8 @@ export default function RotatingSquare() {
 			const centerX = window.innerWidth / 2
 			const centerY = window.innerHeight / 2
 
-			const rotateY = (e.clientX - centerX) * 0.02
-			const rotateX = (centerY - e.clientY) * 0.02
+			const rotateY = (e.clientX - centerX) * 0.04
+			const rotateX = (centerY - e.clientY) * 0.04
 
 			setRotation({ x: rotateX, y: rotateY })
 		}

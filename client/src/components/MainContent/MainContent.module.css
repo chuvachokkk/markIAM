@@ -306,3 +306,209 @@
 .serviceButton:active {
 	transform: translateY(0);
 }
+
+.techSection {
+	padding: 6rem 0;
+	background: rgba(50, 205, 50, 0.05);
+	border-radius: 24px;
+	margin: 4rem 0;
+	border: 1px solid rgba(50, 205, 50, 0.1);
+	backdrop-filter: blur(10px);
+	position: relative;
+	overflow: visible;
+}
+
+.techTitle {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 3.5rem;
+	color: #32cd32;
+	text-align: center;
+	margin-bottom: 4rem;
+	text-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+	position: relative;
+}
+
+.techGrid {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	padding: 0 4rem;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.techCategory {
+	background: rgba(50, 205, 50, 0.08);
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	border-radius: 20px;
+	padding: 2.5rem;
+	transition: all 0.4s ease;
+	position: relative;
+	overflow: visible;
+}
+
+.techHeader {
+	margin-bottom: 1.5rem;
+}
+
+.techCategoryTitle {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 2.5rem;
+	color: #32cd32;
+	margin-bottom: 0.5rem;
+	text-shadow: 0 0 10px rgba(50, 205, 50, 0.2);
+}
+
+.techSubtitle {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.5rem;
+	color: #32cd32;
+	opacity: 0.9;
+}
+
+.techDescription {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	color: #fff;
+	opacity: 0.9;
+	margin-bottom: 2rem;
+	max-width: 800px;
+}
+
+.techItems {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.techItem {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	padding: 0.8rem 1.2rem;
+	background: rgba(50, 205, 50, 0.05);
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	border: 1px solid rgba(50, 205, 50, 0.1);
+}
+
+.techItem:hover {
+	background: rgba(50, 205, 50, 0.1);
+	transform: translateY(-2px);
+	border-color: rgba(50, 205, 50, 0.3);
+	box-shadow: 0 4px 12px rgba(50, 205, 50, 0.1);
+}
+
+.techIcon {
+	font-size: 1.4rem;
+	background: rgba(50, 205, 50, 0.1);
+	padding: 0.4rem;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.techItem:hover .techIcon {
+	transform: scale(1.1);
+	background: rgba(50, 205, 50, 0.15);
+}
+
+.techName {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1rem;
+	color: #fff;
+	white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+	.techGrid {
+		padding: 0 2rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.techSection {
+		padding: 3rem 0;
+		margin: 2rem 0;
+	}
+
+	.techTitle {
+		font-size: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.techGrid {
+		padding: 0 1.5rem;
+		gap: 2rem;
+	}
+
+	.techCategory {
+		padding: 1.5rem;
+	}
+
+	.techCategoryTitle {
+		font-size: 2rem;
+	}
+
+	.techSubtitle {
+		font-size: 1.3rem;
+	}
+
+	.techDescription {
+		font-size: 1.1rem;
+	}
+
+	.techItems {
+		gap: 0.8rem;
+	}
+
+	.techItem {
+		padding: 0.6rem 1rem;
+	}
+
+	.techIcon {
+		font-size: 1.2rem;
+		padding: 0.3rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.techSection {
+		padding: 2rem 0;
+	}
+
+	.techTitle {
+		font-size: 2rem;
+	}
+
+	.techGrid {
+		padding: 0 1rem;
+	}
+
+	.techCategory {
+		padding: 1.2rem;
+	}
+
+	.techCategoryTitle {
+		font-size: 1.8rem;
+	}
+
+	.techSubtitle {
+		font-size: 1.2rem;
+	}
+
+	.techDescription {
+		font-size: 1rem;
+	}
+
+	.techItems {
+		gap: 0.6rem;
+	}
+
+	.techItem {
+		padding: 0.5rem 0.8rem;
+	}
+}

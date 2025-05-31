@@ -145,13 +145,13 @@ export default function Header() {
 						>
 							О нас
 						</Link>
-						<a
-							href='/about'
+						<Link
+							to='/contacts'
 							className={styles.navLink}
 							onClick={() => setMenuOpen(false)}
 						>
 							Контакты
-						</a>
+						</Link>
 					</nav>
 				</div>
 				{/*  Обёртка с перспективой (создаёт эффект 3D) */}

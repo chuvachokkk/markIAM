@@ -13,6 +13,12 @@
 	margin-bottom: 3rem;
 	border: 1px solid rgba(50, 205, 50, 0.1);
 	backdrop-filter: blur(10px);
+	transition: all 0.3s ease;
+}
+
+.serviceSection:hover {
+	border-color: rgba(50, 205, 50, 0.2);
+	box-shadow: 0 0 30px rgba(50, 205, 50, 0.1);
 }
 
 .serviceHeader {
@@ -48,6 +54,8 @@
 	border-radius: 12px;
 	padding: 1.5rem;
 	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
 }
 
 .serviceCard:hover {
@@ -90,6 +98,7 @@
 	background: rgba(50, 205, 50, 0.05);
 	padding: 1rem;
 	border-radius: 8px;
+	margin-bottom: 1rem;
 }
 
 .includes h5 {
@@ -112,6 +121,7 @@
 	padding: 1.5rem;
 	background: rgba(50, 205, 50, 0.05);
 	border-radius: 12px;
+	border: 1px solid rgba(50, 205, 50, 0.1);
 }
 
 .summary p {
@@ -141,6 +151,210 @@
 	font-size: 1.1rem;
 	line-height: 1.5;
 	opacity: 0.9;
+}
+
+.orderButton {
+	width: 100%;
+	padding: 12px;
+	background: rgba(50, 205, 50, 0.1);
+	color: #32cd32;
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: auto;
+	transition: all 0.3s ease;
+	font-family: 'DlyMalenkih', sans-serif;
+}
+
+.orderButton:hover {
+	background: rgba(50, 205, 50, 0.2);
+	border-color: #32cd32;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(50, 205, 50, 0.2);
+}
+
+.formOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	animation: fadeIn 0.3s ease;
+}
+
+.formContainer {
+	background: rgba(0, 0, 0, 0.9);
+	padding: 30px;
+	border-radius: 16px;
+	width: 90%;
+	max-width: 500px;
+	position: relative;
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	box-shadow: 0 0 30px rgba(50, 205, 50, 0.1);
+	animation: scaleIn 0.3s ease;
+}
+
+.formContainer h3 {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 24px;
+	color: #32cd32;
+	margin-bottom: 20px;
+	text-align: center;
+	text-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
+}
+
+.closeButton {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	color: #32cd32;
+	opacity: 0.7;
+	transition: all 0.3s ease;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+}
+
+.closeButton:hover {
+	opacity: 1;
+	background: rgba(50, 205, 50, 0.1);
+	transform: rotate(90deg);
+}
+
+.formGroup {
+	margin-bottom: 20px;
+}
+
+.formGroup input,
+.formGroup textarea {
+	width: 100%;
+	padding: 12px;
+	background: rgba(50, 205, 50, 0.05);
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	border-radius: 8px;
+	font-size: 16px;
+	color: #fff;
+	font-family: 'DlyMalenkih', sans-serif;
+	transition: all 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+	outline: none;
+	border-color: #32cd32;
+	box-shadow: 0 0 10px rgba(50, 205, 50, 0.2);
+	background: rgba(50, 205, 50, 0.08);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+	color: rgba(50, 205, 50, 0.5);
+}
+
+.formGroup textarea {
+	height: 120px;
+	resize: vertical;
+}
+
+.submitButton {
+	width: 100%;
+	padding: 12px;
+	background: rgba(50, 205, 50, 0.1);
+	color: #32cd32;
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: all 0.3s ease;
+	font-family: 'DlyMalenkih', sans-serif;
+	margin-top: 10px;
+}
+
+.submitButton:hover {
+	background: rgba(50, 205, 50, 0.2);
+	border-color: #32cd32;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(50, 205, 50, 0.2);
+}
+
+.submitButton:active {
+	transform: translateY(0);
+}
+
+.notification {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 15px 25px;
+	border-radius: 8px;
+	color: #fff;
+	z-index: 1001;
+	animation: slideIn 0.3s ease-out;
+	font-family: 'DlyMalenkih', sans-serif;
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	backdrop-filter: blur(5px);
+}
+
+.notification.success {
+	background: rgba(50, 205, 50, 0.1);
+	color: #32cd32;
+}
+
+.notification.error {
+	background: rgba(244, 67, 54, 0.1);
+	color: #f44336;
+	border-color: rgba(244, 67, 54, 0.2);
+}
+
+.notification.loading {
+	background: rgba(33, 150, 243, 0.1);
+	color: #2196f3;
+	border-color: rgba(33, 150, 243, 0.2);
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		transform: scale(0.95);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
 }
 
 @media (max-width: 768px) {
@@ -193,5 +407,18 @@
 
 	.advantage p {
 		font-size: 1rem;
+	}
+
+	.formContainer {
+		padding: 20px;
+	}
+
+	.formContainer h3 {
+		font-size: 20px;
+	}
+
+	.notification {
+		width: calc(100% - 40px);
+		text-align: center;
 	}
 }

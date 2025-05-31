@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styles from './Services.module.css'
 
 const servicesData = [
@@ -20,7 +21,7 @@ const servicesData = [
 				price: '55 000 – 130 000',
 				description: 'Корпоративный сайт с блогом, услугами и портфолио.',
 				includes:
-					'До 10 страниц, CMS (WordPress/Tilda), мобильная версия, контент-менеджер',
+					'До 10 страниц, самописная CMS, мобильная версия, контент-менеджер',
 			},
 			{
 				name: 'Интернет-магазин',
@@ -205,10 +206,118 @@ const servicesData = [
 ]
 
 export default function Services() {
+	const location = useLocation()
+	const [showForm, setShowForm] = useState(false)
+	const [selectedService, setSelectedService] = useState(null)
+	const [formData, setFormData] = useState({
+		name: '',
+		contact: '',
+		message: '',
+	})
+	const [notification, setNotification] = useState({
+		show: false,
+		type: '',
+		message: '',
+	})
+
+	const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+	const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
+
+	useEffect(() => {
+		if (location.hash) {
+			const element = document.getElementById(location.hash.slice(1))
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' })
+			}
+		}
+	}, [location])
+
+	const handleServiceClick = service => {
+		setSelectedService(service)
+		setShowForm(true)
+	}
+
+	const handleInputChange = e => {
+		const { name, value } = e.target
+		setFormData(prev => ({
+			...prev,
+			[name]: value,
+		}))
+	}
+
+	const handleSubmit = async e => {
+		e.preventDefault()
+		setNotification({ show: true, type: 'loading', message: 'Отправляем...' })
+
+		try {
+			const telegramMessage = `
+🔔 Новая заявка!
+
+Категория: ${selectedService.category}
+Услуга: ${selectedService.name}
+
+👤 Имя: ${formData.name}
+📞 Контакты: ${formData.contact}
+💬 Сообщение: ${formData.message || 'Не указано'}
+			`
+
+			console.log('Отправка в Telegram:', {
+				token: TELEGRAM_BOT_TOKEN ? 'Токен есть' : 'Токена нет',
+				chatId: TELEGRAM_CHAT_ID ? 'ID есть' : 'ID нет',
+				message: telegramMessage,
+			})
+
+			const response = await fetch(
+				`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						chat_id: TELEGRAM_CHAT_ID,
+						text: telegramMessage,
+						parse_mode: 'HTML',
+					}),
+				}
+			)
+
+			const data = await response.json()
+			console.log('Ответ от Telegram:', data)
+
+			if (response.ok) {
+				setNotification({
+					show: true,
+					type: 'success',
+					message: 'Спасибо! Мы свяжемся с вами в ближайшее время.',
+				})
+				setFormData({ name: '', contact: '', message: '' })
+				setTimeout(() => {
+					setShowForm(false)
+					setNotification({ show: false, type: '', message: '' })
+				}, 3000)
+			} else {
+				throw new Error(data.description || 'Ошибка при отправке')
+			}
+		} catch (error) {
+			console.error('Error sending message to Telegram:', error)
+			setNotification({
+				show: true,
+				type: 'error',
+				message:
+					error.message || 'Произошла ошибка. Пожалуйста, попробуйте позже.',
+			})
+		}
+	}
+
 	return (
 		<div className={styles.container}>
-			{servicesData.map((service, index) => (
-				<section key={service.id} className={styles.serviceSection}>
+			{servicesData.map(service => (
+				<section
+					key={service.id}
+					id={service.id}
+					className={styles.serviceSection}
+				>
 					<div className={styles.serviceHeader}>
 						<h2 className={styles.title}>{service.title}</h2>
 						<h3 className={styles.subtitle}>{service.subtitle}</h3>
@@ -226,6 +335,14 @@ export default function Services() {
 									<h5>Что входит:</h5>
 									<p>{item.includes}</p>
 								</div>
+								<button
+									className={styles.orderButton}
+									onClick={() =>
+										handleServiceClick({ ...item, category: service.title })
+									}
+								>
+									Заказать
+								</button>
 							</div>
 						))}
 					</div>
@@ -240,6 +357,59 @@ export default function Services() {
 					</div>
 				</section>
 			))}
+
+			{showForm && (
+				<div className={styles.formOverlay}>
+					<div className={styles.formContainer}>
+						<button
+							className={styles.closeButton}
+							onClick={() => setShowForm(false)}
+						>
+							×
+						</button>
+						<h3>Заказать {selectedService?.name}</h3>
+						<form onSubmit={handleSubmit}>
+							<div className={styles.formGroup}>
+								<input
+									type='text'
+									name='name'
+									placeholder='Ваше имя'
+									value={formData.name}
+									onChange={handleInputChange}
+									required
+								/>
+							</div>
+							<div className={styles.formGroup}>
+								<input
+									type='text'
+									name='contact'
+									placeholder='Email или телефон'
+									value={formData.contact}
+									onChange={handleInputChange}
+									required
+								/>
+							</div>
+							<div className={styles.formGroup}>
+								<textarea
+									name='message'
+									placeholder='Сообщение (необязательно)'
+									value={formData.message}
+									onChange={handleInputChange}
+								/>
+							</div>
+							<button type='submit' className={styles.submitButton}>
+								Отправить
+							</button>
+						</form>
+					</div>
+				</div>
+			)}
+
+			{notification.show && (
+				<div className={`${styles.notification} ${styles[notification.type]}`}>
+					{notification.message}
+				</div>
+			)}
 		</div>
 	)
 }

@@ -1,0 +1,197 @@
+.container {
+	background: #000;
+	color: #fff;
+	min-height: 100vh;
+	padding: 2rem;
+	margin-top: 111px;
+}
+
+.serviceSection {
+	background: rgba(50, 205, 50, 0.05);
+	border-radius: 16px;
+	padding: 2rem;
+	margin-bottom: 3rem;
+	border: 1px solid rgba(50, 205, 50, 0.1);
+	backdrop-filter: blur(10px);
+}
+
+.serviceHeader {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.title {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 3rem;
+	color: #32cd32;
+	margin-bottom: 0.5rem;
+	text-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+}
+
+.subtitle {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.5rem;
+	color: #32cd32;
+	opacity: 0.9;
+}
+
+.servicesGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+
+.serviceCard {
+	background: rgba(50, 205, 50, 0.1);
+	border: 1px solid rgba(50, 205, 50, 0.2);
+	border-radius: 12px;
+	padding: 1.5rem;
+	transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 24px rgba(50, 205, 50, 0.2);
+	border-color: #32cd32;
+}
+
+.serviceCardHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.serviceCardHeader h4 {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.3rem;
+	color: #32cd32;
+}
+
+.price {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1.1rem;
+	color: #32cd32;
+	background: rgba(50, 205, 50, 0.1);
+	padding: 0.3rem 0.8rem;
+	border-radius: 6px;
+}
+
+.description {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	opacity: 0.9;
+}
+
+.includes {
+	background: rgba(50, 205, 50, 0.05);
+	padding: 1rem;
+	border-radius: 8px;
+}
+
+.includes h5 {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.1rem;
+	color: #32cd32;
+	margin-bottom: 0.5rem;
+}
+
+.includes p {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	opacity: 0.9;
+}
+
+.summary {
+	text-align: center;
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background: rgba(50, 205, 50, 0.05);
+	border-radius: 12px;
+}
+
+.summary p {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	opacity: 0.9;
+}
+
+.advantage {
+	text-align: center;
+	padding: 1.5rem;
+	background: rgba(50, 205, 50, 0.1);
+	border-radius: 12px;
+	border: 1px solid rgba(50, 205, 50, 0.2);
+}
+
+.advantage h4 {
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 1.3rem;
+	color: #32cd32;
+	margin-bottom: 0.5rem;
+}
+
+.advantage p {
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.5;
+	opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+		margin-top: 80px;
+	}
+
+	.serviceSection {
+		padding: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.title {
+		font-size: 2.5rem;
+	}
+
+	.subtitle {
+		font-size: 1.3rem;
+	}
+
+	.servicesGrid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.serviceCard {
+		padding: 1.2rem;
+	}
+
+	.serviceCardHeader h4 {
+		font-size: 1.2rem;
+	}
+
+	.price {
+		font-size: 1rem;
+	}
+
+	.description {
+		font-size: 0.95rem;
+	}
+
+	.summary p {
+		font-size: 1.1rem;
+	}
+
+	.advantage h4 {
+		font-size: 1.2rem;
+	}
+
+	.advantage p {
+		font-size: 1rem;
+	}
+}

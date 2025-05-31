@@ -116,7 +116,6 @@ export default function Header() {
 		<>
 			<header className={styles.header}>
 				<div className={styles.headerContainer}>
-					{/* Группа логотипа и кнопки */}
 					<div className={styles.logoMenuGroup}>
 						<Link to='/'>
 							<img src={logo} alt='Логотип' className={styles.logo} />
@@ -131,23 +130,14 @@ export default function Header() {
 							Меню
 						</div>
 					</div>
-
-					{/* Раскрывающееся меню */}
 					<nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
-						<a
-							href='#services'
+						<Link
+							to='/services'
 							className={styles.navLink}
 							onClick={() => setMenuOpen(false)}
 						>
 							Услуги
-						</a>
-						<a
-							href='#work'
-							className={styles.navLink}
-							onClick={() => setMenuOpen(false)}
-						>
-							Работы
-						</a>
+						</Link>
 						<Link
 							to='/about'
 							className={styles.navLink}

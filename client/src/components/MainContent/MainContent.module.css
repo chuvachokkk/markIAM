@@ -231,6 +231,16 @@
 		opacity: 0;
 		transform: translateY(50px);
 	}
+
+	.buttonGroup {
+		justify-content: center;
+		gap: 0.8rem;
+	}
+
+	.serviceButton {
+		font-size: 0.9rem;
+		padding: 0.6rem 1.2rem;
+	}
 }
 
 /* Стили для очень маленьких экранов */
@@ -263,4 +273,36 @@
 	.desc {
 		font-size: 1.1rem;
 	}
+}
+
+.buttonGroup {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.serviceButton {
+	background: rgba(50, 205, 50, 0.1);
+	border: 1px solid rgba(50, 205, 50, 0.3);
+	color: #32cd32;
+	padding: 0.8rem 1.5rem;
+	border-radius: 8px;
+	font-family: 'DlyMalenkih', sans-serif;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.serviceButton:hover {
+	background: rgba(50, 205, 50, 0.2);
+	transform: translateY(-2px);
+	border-color: #32cd32;
+	box-shadow: 0 4px 12px rgba(50, 205, 50, 0.2);
+}
+
+.serviceButton:active {
+	transform: translateY(0);
 }

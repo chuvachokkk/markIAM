@@ -22,13 +22,16 @@
 
 /* Стили для шапки сайта */
 .header {
-	position: fixed; /* Фиксированное позиционирование */
-	top: 0; /* Прикрепляем к верху экрана */
-	left: 0; /* Прикрепляем к левому краю */
-	width: 100%; /* Растягиваем на всю ширину */
-	z-index: 100; /* Уровень наложения элементов */
-	padding: 20px 0; /* Отступы сверху и снизу */
-	background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	padding: 20px 0;
+	background-color: #000;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(50, 205, 50, 0.1);
 }
 
 .formBackdrop {

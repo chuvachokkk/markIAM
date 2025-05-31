@@ -22,6 +22,7 @@ export default function RotatingSquare() {
 
 	return (
 		<div className={styles.container}>
+			<div className={styles.textLeft}>iAm</div>
 			<div
 				className={styles.square}
 				style={{
@@ -33,6 +34,7 @@ export default function RotatingSquare() {
 				</div>
 				<div className={styles.back}>{logo1}</div>
 			</div>
+			<div className={styles.textRight}>скажи что тут надо</div>
 		</div>
 	)
 }

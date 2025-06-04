@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-	base: '/',
+	base: '/markIAM/',
 	plugins: [react()],
 	server: {
 		port: 5173,
@@ -12,5 +12,6 @@ export default defineConfig({
 	build: {
 		outDir: 'dist',
 		assetsDir: 'assets',
+		sourcemap: true,
 	},
 })

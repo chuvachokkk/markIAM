@@ -62,11 +62,29 @@
 	border-radius: 15px;
 }
 
-.textLeft,
+.textLeft {
+	position: absolute;
+	top: 15rem;
+	left: 37%;
+	transform: translateX(-50%);
+	font-family: 'DlyShirnyh', sans-serif;
+	font-size: 2.5rem;
+	color: #32cd32;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+	opacity: 0;
+	animation: fadeIn 1s ease forwards;
+	animation-delay: 0.5s;
+	white-space: nowrap;
+	z-index: 1;
+	text-align: center;
+}
+
 .textRight {
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 15rem;
+	transform: none;
 	font-family: 'DlyShirnyh', sans-serif;
 	font-size: 2.5rem;
 	color: #32cd32;
@@ -80,12 +98,8 @@
 	z-index: 1;
 }
 
-.textLeft {
-	left: 35rem;
-}
-
 .textRight {
-	right: 22rem;
+	right: 0;
 }
 
 @keyframes fadeIn {
@@ -100,50 +114,30 @@
 }
 
 @media (max-width: 1800px) {
-	.textLeft {
-		left: -20rem;
-	}
-
 	.textRight {
 		right: -20rem;
 	}
 }
 
 @media (max-width: 1600px) {
-	.textLeft {
-		left: -18rem;
-	}
-
 	.textRight {
 		right: -18rem;
 	}
 }
 
 @media (max-width: 1400px) {
-	.textLeft {
-		left: -15rem;
-	}
-
 	.textRight {
 		right: -15rem;
 	}
 }
 
 @media (max-width: 1200px) {
-	.textLeft {
-		left: -12rem;
-	}
-
 	.textRight {
 		right: -12rem;
 	}
 }
 
 @media (max-width: 992px) {
-	.textLeft {
-		left: -10rem;
-	}
-
 	.textRight {
 		right: -10rem;
 	}
@@ -157,8 +151,7 @@
 		padding: 2rem;
 	}
 
-	.textLeft,
-	.textRight {
+	.textLeft {
 		position: relative;
 		left: auto;
 		right: auto;
@@ -177,8 +170,7 @@
 }
 
 @media (max-width: 480px) {
-	.textLeft,
-	.textRight {
+	.textLeft {
 		font-size: 1.5rem;
 	}
 }

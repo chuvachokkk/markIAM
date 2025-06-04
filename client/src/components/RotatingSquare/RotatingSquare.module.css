@@ -6,17 +6,19 @@
 	perspective: 1000px;
 	width: 100%;
 	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
 }
 
 .square {
 	width: 300px;
 	height: 300px;
-	position: absolute;
-	top: 40%;
-	left: 40%;
-	transform: translate(-50%, -50%);
+	position: relative;
 	transform-style: preserve-3d;
 	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	z-index: 2;
 }
 
 .front,
@@ -75,6 +77,7 @@
 	animation: fadeIn 1s ease forwards;
 	animation-delay: 0.5s;
 	white-space: nowrap;
+	z-index: 1;
 }
 
 .textLeft {
@@ -82,7 +85,7 @@
 }
 
 .textRight {
-	right: 25rem;
+	right: 22rem;
 }
 
 @keyframes fadeIn {
@@ -96,9 +99,62 @@
 	}
 }
 
+@media (max-width: 1800px) {
+	.textLeft {
+		left: -20rem;
+	}
+
+	.textRight {
+		right: -20rem;
+	}
+}
+
+@media (max-width: 1600px) {
+	.textLeft {
+		left: -18rem;
+	}
+
+	.textRight {
+		right: -18rem;
+	}
+}
+
+@media (max-width: 1400px) {
+	.textLeft {
+		left: -15rem;
+	}
+
+	.textRight {
+		right: -15rem;
+	}
+}
+
+@media (max-width: 1200px) {
+	.textLeft {
+		left: -12rem;
+	}
+
+	.textRight {
+		right: -12rem;
+	}
+}
+
+@media (max-width: 992px) {
+	.textLeft {
+		left: -10rem;
+	}
+
+	.textRight {
+		right: -10rem;
+	}
+}
+
 @media (max-width: 768px) {
 	.container {
 		height: auto;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 2rem;
 	}
 
 	.textLeft,
@@ -114,9 +170,15 @@
 	}
 
 	.square {
-		position: relative;
 		width: 250px;
 		height: 250px;
 		margin: 2rem auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.textLeft,
+	.textRight {
+		font-size: 1.5rem;
 	}
 }

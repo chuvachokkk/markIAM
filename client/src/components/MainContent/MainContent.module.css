@@ -69,92 +69,87 @@
 
 /* Стили для каждой отдельной секции */
 .section {
-	opacity: 0; /* Изначально делаем секцию невидимой */
-	transition: all 0.8s ease; /* Добавляем плавную анимацию для всех изменений */
-	padding: 3rem; /* Задаем внутренние отступы со всех сторон */
-	background: rgba(
-		50,
-		205,
-		50,
-		0.05
-	); /* Устанавливаем полупрозрачный зеленый фон */
-	border-radius: 16px; /* Скругляем углы секции */
-	width: 100%; /* Занимаем всю доступную ширину */
-	max-width: 1000px; /* Ограничиваем максимальную ширину секции */
-	position: relative; /* Устанавливаем относительное позиционирование */
-	backdrop-filter: blur(10px); /* Добавляем размытие фона под секцией */
-	border: 1px solid rgba(50, 205, 50, 0.1); /* Добавляем тонкую зеленую рамку */
-	box-shadow: 0 8px 32px rgba(50, 205, 50, 0.1); /* Добавляем тень с зеленым оттенком */
+	opacity: 0;
+	transition: all 0.8s ease;
+	padding: 3rem;
+	background: rgba(50, 205, 50, 0.05);
+	border-radius: 16px;
+	width: 100%;
+	max-width: 1000px;
+	position: relative;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(50, 205, 50, 0.1);
+	box-shadow: 0 8px 32px rgba(50, 205, 50, 0.1);
 }
 
 /* Стили для четных секций (2, 4, 6...) */
 .section:nth-child(2n) {
-	transform: translateX(100px); /* Смещаем секцию вправо на 100px */
-	margin-left: auto; /* Прижимаем секцию к правому краю */
-	margin-right: 0; /* Убираем правый отступ */
+	transform: translateX(50px);
+	margin-left: auto;
+	margin-right: 0;
 }
 
 /* Стили для нечетных секций (1, 3, 5...) */
 .section:nth-child(2n + 1) {
-	transform: translateX(-100px); /* Смещаем секцию влево на 100px */
-	margin-right: auto; /* Прижимаем секцию к левому краю */
-	margin-left: 0; /* Убираем левый отступ */
+	transform: translateX(-50px);
+	margin-right: auto;
+	margin-left: 0;
 }
 
 /* Стили для видимой секции */
 .section.visible {
-	opacity: 1; /* Делаем секцию полностью видимой */
-	transform: translateX(0); /* Возвращаем секцию в исходное положение */
+	opacity: 1;
+	transform: translateX(0);
 }
 
 /* Стили для скрытой секции */
 .section.hidden {
-	opacity: 0; /* Делаем секцию полностью невидимой */
+	opacity: 0;
 }
 
 /* Стили для скрытых четных секций */
 .section.hidden:nth-child(2n) {
-	transform: translateX(100px); /* Смещаем секцию вправо при скрытии */
+	transform: translateX(100px);
 }
 
 /* Стили для скрытых нечетных секций */
 .section.hidden:nth-child(2n + 1) {
-	transform: translateX(-100px); /* Смещаем секцию влево при скрытии */
+	transform: translateX(-100px);
 }
 
 /* Контейнер для заголовка */
 .titleWrapper {
-	display: flex; /* Включаем flexbox для управления расположением */
-	align-items: baseline; /* Выравниваем элементы по базовой линии */
-	gap: 2rem; /* Задаем отступ между элементами */
-	margin-bottom: 2rem; /* Добавляем отступ снизу */
+	display: flex;
+	align-items: baseline;
+	gap: 2rem;
+	margin-bottom: 2rem;
 }
 
 /* Стили для основного заголовка */
 .title {
-	font-size: 4.5rem; /* Задаем размер шрифта */
-	margin: 0; /* Убираем все внешние отступы */
-	color: #32cd32; /* Устанавливаем зеленый цвет */
-	font-family: 'DlyShirnyh', sans-serif; /* Используем кастомный шрифт */
-	text-shadow: 0 0 20px rgba(50, 205, 50, 0.3); /* Добавляем зеленую тень для текста */
+	font-size: 4.5rem;
+	margin: 0;
+	color: #32cd32;
+	font-family: 'DlyShirnyh', sans-serif;
+	text-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
 }
 
 /* Стили для подзаголовка */
 .section h3 {
-	font-size: 2rem; /* Задаем размер шрифта */
-	margin-bottom: 1.5rem; /* Добавляем отступ снизу */
-	color: #32cd32; /* Устанавливаем зеленый цвет */
-	font-family: 'DlyShirnyh', sans-serif; /* Используем кастомный шрифт */
-	opacity: 0.9; /* Делаем текст слегка прозрачным */
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+	color: #32cd32;
+	font-family: 'DlyShirnyh', sans-serif;
+	opacity: 0.9;
 }
 
 /* Стили для описания */
 .desc {
-	font-size: 1.8rem; /* Задаем размер шрифта */
-	line-height: 1.8; /* Устанавливаем межстрочный интервал */
-	opacity: 0.9; /* Делаем текст слегка прозрачным */
-	max-width: 800px; /* Ограничиваем максимальную ширину текста */
-	font-family: 'DlyMalenkih', sans-serif; /* Используем кастомный шрифт */
+	font-size: 1.8rem;
+	line-height: 1.8;
+	opacity: 0.9;
+	max-width: 800px;
+	font-family: 'DlyMalenkih', sans-serif;
 }
 
 @keyframes sharpen {
@@ -186,25 +181,17 @@
 	}
 
 	.sections {
-		padding: 100vh 1rem 2rem;
+		padding: 60vh 1rem 3rem;
 		gap: 100px;
 	}
 
 	.section {
 		max-width: 100%;
 		padding: 2rem;
-		margin: 0;
-		transform: none !important;
-	}
-
-	.section:nth-child(2n),
-	.section:nth-child(2n + 1) {
-		transform: none !important;
-		margin: 0;
 	}
 
 	.title {
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 
 	.section h3 {
@@ -254,8 +241,8 @@
 	}
 
 	.sections {
-		padding: 100vh 0.5rem 1rem;
-		gap: 50px;
+		padding: 50vh 0.5rem 2rem;
+		gap: 80px;
 	}
 
 	.section {
@@ -263,7 +250,7 @@
 	}
 
 	.title {
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 
 	.section h3 {
@@ -424,6 +411,22 @@
 }
 
 @media (max-width: 1200px) {
+	.sections {
+		padding: 80vh 2rem 4rem;
+		gap: 150px;
+	}
+
+	.section {
+		max-width: 90%;
+		padding: 2.5rem;
+	}
+
+	.section:nth-child(2n),
+	.section:nth-child(2n + 1) {
+		transform: translateX(0);
+		margin: 0 auto;
+	}
+
 	.techGrid {
 		padding: 0 2rem;
 	}

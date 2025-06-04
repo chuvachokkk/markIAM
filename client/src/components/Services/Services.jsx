@@ -220,9 +220,6 @@ export default function Services() {
 		message: '',
 	})
 
-	const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
-	const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
-
 	useEffect(() => {
 		if (location.hash) {
 			const element = document.getElementById(location.hash.slice(1))
@@ -261,21 +258,17 @@ export default function Services() {
 💬 Сообщение: ${formData.message || 'Не указано'}
 			`
 
-			console.log('Отправка в Telegram:', {
-				token: TELEGRAM_BOT_TOKEN ? 'Токен есть' : 'Токена нет',
-				chatId: TELEGRAM_CHAT_ID ? 'ID есть' : 'ID нет',
-				message: telegramMessage,
-			})
-
 			const response = await fetch(
-				`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+				`https://api.telegram.org/bot${
+					import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+				}/sendMessage`,
 				{
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						chat_id: TELEGRAM_CHAT_ID,
+						chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
 						text: telegramMessage,
 						parse_mode: 'HTML',
 					}),
@@ -283,7 +276,6 @@ export default function Services() {
 			)
 
 			const data = await response.json()
-			console.log('Ответ от Telegram:', data)
 
 			if (response.ok) {
 				setNotification({

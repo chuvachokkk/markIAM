@@ -21,10 +21,13 @@ export default function RotatingSquare() {
 	}, [])
 
 	return (
-		<div className={styles.container}>
-			<div className={styles.textLeft}>I AM</div>
+		<div className={styles.container} data-testid='rotating-square-container'>
+			<div className={styles.textLeft} data-testid='text-left'>
+				I AM
+			</div>
 			<div
 				className={styles.square}
+				data-testid='rotating-square'
 				style={{
 					transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
 				}}
@@ -36,7 +39,9 @@ export default function RotatingSquare() {
 					<img src={logo1} alt='logo1' className={styles.logo} />
 				</div>
 			</div>
-			<div className={styles.textRight}>Your Digital DNA</div>
+			<div className={styles.textRight} data-testid='text-right'>
+				Your Digital DNA
+			</div>
 		</div>
 	)
 }

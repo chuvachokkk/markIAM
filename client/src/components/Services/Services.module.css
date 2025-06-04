@@ -67,14 +67,18 @@
 .serviceCardHeader {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 	margin-bottom: 1rem;
+	gap: 1rem;
 }
 
 .serviceCardHeader h4 {
 	font-family: 'DlyShirnyh', sans-serif;
 	font-size: 1.3rem;
 	color: #32cd32;
+	flex: 1;
+	word-wrap: break-word;
+	min-width: 0;
 }
 
 .price {
@@ -84,6 +88,9 @@
 	background: rgba(50, 205, 50, 0.1);
 	padding: 0.3rem 0.8rem;
 	border-radius: 6px;
+	white-space: nowrap;
+	flex-shrink: 0;
+	min-width: fit-content;
 }
 
 .description {

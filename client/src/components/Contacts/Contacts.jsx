@@ -144,7 +144,7 @@ export default function Contacts() {
 						</div>
 					</div>
 
-					<div className={styles.socialLinks}>
+					{/* <div className={styles.socialLinks}>
 						<h3>Мы в соцсетях</h3>
 						<div className={styles.socialIcons}>
 							<a
@@ -164,7 +164,7 @@ export default function Contacts() {
 								TG
 							</a>
 						</div>
-					</div>
+					</div> */}
 				</div>
 
 				<div className={styles.formSection}>

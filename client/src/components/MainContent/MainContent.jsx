@@ -1,6 +1,28 @@
 import { useNavigate } from 'react-router-dom'
 import styles from './MainContent.module.css'
 import { useScrollAnimation } from './useScrollAnimation'
+// Импортируем иконки для дизайна
+import {
+	FaBullseye,
+	FaCube,
+	FaFigma,
+	FaFilm,
+	FaImage,
+	FaPalette,
+	FaPencilAlt,
+	FaVideo,
+} from 'react-icons/fa'
+// Импортируем иконки для разработки
+import { FaDocker, FaGitAlt, FaNodeJs, FaReact, FaVuejs } from 'react-icons/fa'
+import {
+	SiExpress,
+	SiJest,
+	SiNestjs,
+	SiPostgresql,
+	SiTypescript,
+} from 'react-icons/si'
+// Импортируем иконки для маркетинга
+import { FaSearch, FaTelegram, FaVk, FaYandex } from 'react-icons/fa'
 
 const technologies = {
 	design: {
@@ -9,14 +31,14 @@ const technologies = {
 		description:
 			'Используем современные инструменты для создания уникального визуального стиля, который поможет вашему бренду выделиться на рынке.',
 		items: [
-			{ name: 'Figma', icon: '🎨' },
-			{ name: 'Adobe XD', icon: '✨' },
-			{ name: 'Photoshop', icon: '🖼️' },
-			{ name: 'Illustrator', icon: '✏️' },
-			{ name: 'After Effects', icon: '🎬' },
-			{ name: 'Blender', icon: '🎮' },
-			{ name: 'Cinema 4D', icon: '🎥' },
-			{ name: 'Substance', icon: '🎯' },
+			{ name: 'Figma', icon: <FaFigma /> },
+			{ name: 'Adobe XD', icon: <FaPalette /> },
+			{ name: 'Photoshop', icon: <FaImage /> },
+			{ name: 'Illustrator', icon: <FaPencilAlt /> },
+			{ name: 'After Effects', icon: <FaVideo /> },
+			{ name: 'Blender', icon: <FaCube /> },
+			{ name: 'Cinema 4D', icon: <FaFilm /> },
+			{ name: 'Substance', icon: <FaBullseye /> },
 		],
 	},
 	development: {
@@ -25,32 +47,32 @@ const technologies = {
 		description:
 			'Создаем современные веб-приложения и сервисы, используя передовые технологии и фреймворки для обеспечения высокой производительности и масштабируемости.',
 		items: [
-			{ name: 'React', icon: '⚛️' },
-			{ name: 'Vue', icon: '🟢' },
-			{ name: 'Node.js', icon: '🟢' },
-			{ name: 'TypeScript', icon: '📘' },
-			{ name: 'Express', icon: '🚀' },
-			{ name: 'NestJS', icon: '🪺' },
-			{ name: 'PostgreSQL', icon: '🐘' },
-			{ name: 'Docker', icon: '🐳' },
-			{ name: 'Jest', icon: '🧪' },
-			{ name: 'E2E Testing', icon: '🔍' },
-			{ name: 'Git', icon: '📦' },
-			{ name: 'CI/CD', icon: '⚡' },
+			{ name: 'React', icon: <FaReact /> },
+			{ name: 'Vue', icon: <FaVuejs /> },
+			{ name: 'Node.js', icon: <FaNodeJs /> },
+			{ name: 'TypeScript', icon: <SiTypescript /> },
+			{ name: 'Express', icon: <SiExpress /> },
+			{ name: 'NestJS', icon: <SiNestjs /> },
+			{ name: 'PostgreSQL', icon: <SiPostgresql /> },
+			{ name: 'Docker', icon: <FaDocker /> },
+			{ name: 'Jest', icon: <SiJest /> },
+			{ name: 'E2E Testing', icon: <SiJest /> },
+			{ name: 'Git', icon: <FaGitAlt /> },
+			{ name: 'CI/CD', icon: <FaGitAlt /> },
 		],
 	},
 	marketing: {
 		title: 'I AM MARKETING',
 		subtitle: 'Инструменты для продвижения',
 		description:
-			'Используем комплексный подход к маркетингу, сочетая аналитику и креатив для достижения максимальных результатов в продвижении вашего бренда.',
+			'Комплексное продвижение вашего бренда через поисковую оптимизацию, контекстную рекламу и социальные сети для достижения максимальной видимости и привлечения целевой аудитории.',
 		items: [
-			{ name: 'Яндекс.Метрика', icon: '📊' },
-			{ name: 'Яндекс.Директ', icon: '🎯' },
-			{ name: 'Яндекс.Взгляд', icon: '👁️' },
-			{ name: 'Яндекс.Аудитории', icon: '👥' },
-			{ name: 'Яндекс.Маркет', icon: '🛍️' },
-			{ name: 'Яндекс.Бизнес', icon: '🏢' },
+			{ name: 'SEO', icon: <FaSearch /> },
+			{ name: 'Яндекс.Директ', icon: <FaYandex /> },
+			{ name: 'Яндекс.Бизнес', icon: <FaYandex /> },
+			{ name: 'ВКонтакте', icon: <FaVk /> },
+			{ name: 'Telegram', icon: <FaTelegram /> },
+			{ name: 'Таргетированная реклама', icon: <FaBullseye /> },
 		],
 	},
 }

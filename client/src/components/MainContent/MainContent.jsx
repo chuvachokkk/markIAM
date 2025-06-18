@@ -1,19 +1,22 @@
-import { useNavigate } from 'react-router-dom'
-import styles from './MainContent.module.css'
-import { useScrollAnimation } from './useScrollAnimation'
-// Импортируем иконки для дизайна
 import {
 	FaBullseye,
 	FaCube,
+	FaDocker,
 	FaFigma,
 	FaFilm,
+	FaGitAlt,
 	FaImage,
+	FaNodeJs,
 	FaPalette,
 	FaPencilAlt,
+	FaReact,
+	FaSearch,
+	FaTelegram,
 	FaVideo,
+	FaVk,
+	FaVuejs,
+	FaYandex,
 } from 'react-icons/fa'
-// Импортируем иконки для разработки
-import { FaDocker, FaGitAlt, FaNodeJs, FaReact, FaVuejs } from 'react-icons/fa'
 import {
 	SiExpress,
 	SiJest,
@@ -21,8 +24,9 @@ import {
 	SiPostgresql,
 	SiTypescript,
 } from 'react-icons/si'
-// Импортируем иконки для маркетинга
-import { FaSearch, FaTelegram, FaVk, FaYandex } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import styles from './MainContent.module.css'
+import { useScrollAnimation } from './useScrollAnimation'
 
 const technologies = {
 	design: {

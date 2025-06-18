@@ -1,26 +1,23 @@
-/* Подключение шрифтов */
 @font-face {
-	font-family: 'DlyShirnyh'; /* Название шрифта для использования в CSS */
-	src: url('../../assets/dlyShirnyh.otf') format('opentype'); /* Путь к файлу шрифта и его формат */
-	font-weight: normal; /* Обычная толщина шрифта */
-	font-style: normal; /* Обычный стиль шрифта */
+	font-family: 'DlyShirnyh';
+	src: url('../../assets/dlyShirnyh.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-	font-family: 'DlyMalenkih'; /* Название шрифта для использования в CSS */
-	src: url('../../assets/dlyMalenkih.otf') format('opentype'); /* Путь к файлу шрифта и его формат */
-	font-weight: normal; /* Обычная толщина шрифта */
-	font-style: normal; /* Обычный стиль шрифта */
+	font-family: 'DlyMalenkih';
+	src: url('../../assets/dlyMalenkih.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-/* Сброс стандартных стилей браузера */
 * {
-	margin: 0; /* Убираем внешние отступы */
-	padding: 0; /* Убираем внутренние отступы */
-	box-sizing: border-box; /* Размер элемента включает padding и border */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* Стили для шапки сайта */
 .header {
 	position: fixed;
 	top: 0;
@@ -181,21 +178,18 @@
 	background-color: rgb(132, 197, 33);
 }
 
-/* Контейнер для содержимого шапки */
 .headerContainer {
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
 }
 
-/* Группа логотипа и кнопки меню */
 .logoMenuGroup {
 	display: flex;
 	align-items: center;
 	gap: 0;
 }
 
-/* Стили для логотипа */
 .logo {
 	height: 70px;
 	width: auto;
@@ -203,7 +197,6 @@
 	object-fit: contain;
 }
 
-/* Стили для кнопки меню */
 .menuButton {
 	background: none;
 	border: none;
@@ -230,7 +223,6 @@
 	width: 100%;
 }
 
-/* Стили для навигационного меню */
 .nav {
 	display: flex;
 	gap: 25px;
@@ -244,14 +236,12 @@
 	font-family: 'DlyShirnyh', sans-serif;
 }
 
-/* Активное состояние меню */
 .nav.active {
 	max-width: 800px;
 	opacity: 1;
 	transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
-/* Стили для ссылок в меню */
 .navLink {
 	font-size: 14px;
 	text-transform: uppercase;
@@ -263,7 +253,6 @@
 	font-family: 'DlyShirnyh', sans-serif;
 }
 
-/* Эффект подчеркивания для ссылок */
 .navLink::after {
 	content: '';
 	position: absolute;
@@ -275,13 +264,11 @@
 	transition: width 0.3s ease;
 }
 
-/* Эффект при наведении на ссылки */
 .navLink:hover {
 	color: #32cd32;
 	transform: translateY(-2px);
 }
 
-/* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
 	.logo {
 		height: 40px;
@@ -326,7 +313,6 @@
 	}
 }
 
-/* Стили для 3D кнопки "Связь с нами" */
 .cubeWrapper {
 	perspective: 1000px;
 	position: absolute;
@@ -375,145 +361,136 @@
 	transform: rotateX(90deg) translateZ(30px);
 }
 
-/* Стили для 3D кнопки "Меню" */
 .menuButton3D {
-	background-color: #32cd32; /* Зеленый цвет фона */
-	color: #000000; /* Черный цвет текста */
-	padding: 0 20px; /* Отступы слева и справа */
-	height: 70px; /* Высота кнопки */
-	border-radius: 0px; /* Убираем скругление углов */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для объема */
-	cursor: pointer; /* Курсор в виде руки при наведении */
-	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная анимация */
-	font-size: 16px; /* Размер шрифта */
-	text-transform: uppercase; /* Текст заглавными буквами */
-	user-select: none; /* Запрет выделения текста */
-	font-weight: 600; /* Жирность шрифта */
-	border: none; /* Убираем границу */
-	display: flex; /* Используем flexbox */
-	align-items: center; /* Выравниваем по центру по вертикали */
-	justify-content: center; /* Выравниваем по центру по горизонтали */
-	line-height: 1; /* Высота строки */
-	position: relative; /* Относительное позиционирование */
-	font-family: 'DlyShirnyh', sans-serif; /* Используем наш шрифт */
+	background-color: #32cd32;
+	color: #000000;
+	padding: 0 20px;
+	height: 70px;
+	border-radius: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	font-size: 16px;
+	text-transform: uppercase;
+	user-select: none;
+	font-weight: 600;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	position: relative;
+	font-family: 'DlyShirnyh', sans-serif;
 }
 
-/* Убираем псевдоэлементы, так как текст теперь в контенте кнопки */
 .menuButton3D::before,
 .menuButton3D::after {
 	display: none;
 }
 
-/* Эффект нажатия на кнопку */
 .menuButton3D:active {
-	transform: translateY(1px); /* Сдвиг вниз при нажатии */
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Уменьшаем тень */
+	transform: translateY(1px);
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
 
-/* Активное состояние кнопки */
 .menuButton3D.open {
-	background-color: #1a1919; /* Темный фон */
-	color: #ffffff; /* Белый текст */
+	background-color: #1a1919;
+	color: #ffffff;
 }
 
-/* Адаптивные стили для мобильных устройств */
 @media (max-width: 414px) {
 	.header {
-		padding: 10px 0; /* Уменьшаем отступы шапки */
+		padding: 10px 0;
 	}
 
 	.headerContainer {
-		padding: 0 10px; /* Уменьшаем отступы контейнера */
-		justify-content: space-between; /* Распределяем элементы по краям */
+		padding: 0 10px;
+		justify-content: space-between;
 	}
 
 	.logo {
-		height: 40px; /* Уменьшаем размер логотипа */
+		height: 40px;
 	}
 
 	.logoMenuGroup {
-		gap: 10px; /* Уменьшаем отступ между лого и кнопкой */
+		gap: 10px;
 	}
 
-	/* Стили для мобильного меню */
 	.nav {
-		position: fixed; /* Фиксированное позиционирование */
-		top: 0; /* Прикрепляем к верху */
-		left: 0; /* Прикрепляем к левому краю */
-		width: 100%; /* На всю ширину экрана */
-		height: 100vh; /* На всю высоту экрана */
-		background: rgba(0, 0, 0, 0.95); /* Полупрозрачный фон */
-		flex-direction: column; /* Вертикальное расположение */
-		justify-content: center; /* Центрируем по вертикали */
-		align-items: center; /* Центрируем по горизонтали */
-		gap: 30px; /* Увеличиваем отступы между пунктами */
-		padding: 20px; /* Добавляем отступы */
-		z-index: 99; /* Уровень наложения */
-		max-width: none; /* Убираем ограничение ширины */
-		opacity: 0; /* Начальная прозрачность */
-		pointer-events: none; /* Отключаем взаимодействие */
-		transition: opacity 0.3s ease; /* Плавная анимация */
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.95);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+		padding: 20px;
+		z-index: 99;
+		max-width: none;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
 	}
 
 	.nav.active {
-		opacity: 1; /* Показываем меню */
-		pointer-events: auto; /* Включаем взаимодействие */
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	.navLink {
-		font-size: 24px; /* Увеличиваем размер шрифта */
-		color: #ffffff; /* Белый цвет текста */
+		font-size: 24px;
+		color: #ffffff;
 	}
 
 	.navLink:hover {
-		color: #32cd32; /* Зеленый цвет при наведении */
+		color: #32cd32;
 	}
 
-	/* Стили для кнопки меню на мобильных */
 	.menuButton3D {
-		height: 50px; /* Уменьшаем высоту кнопки */
-		padding: 0 15px; /* Уменьшаем отступы */
-		font-size: 14px; /* Уменьшаем размер шрифта */
+		height: 50px;
+		padding: 0 15px;
+		font-size: 14px;
 	}
 
-	/* Стили для формы обратной связи на мобильных */
 	.contactFormOverlay {
-		width: 100%; /* На всю ширину экрана */
-		right: -100%; /* Скрываем за правым краем */
-		padding: 20px; /* Уменьшаем отступы */
+		width: 100%;
+		right: -100%;
+		padding: 20px;
 	}
 
 	.contactFormOverlay h2 {
-		font-size: 24px; /* Уменьшаем размер заголовка */
-		margin-bottom: 20px; /* Уменьшаем отступ */
+		font-size: 24px;
+		margin-bottom: 20px;
 	}
 
 	.contactForm input,
 	.contactForm textarea {
-		font-size: 16px; /* Уменьшаем размер шрифта */
-		padding: 15px; /* Уменьшаем отступы */
+		font-size: 16px;
+		padding: 15px;
 	}
 
 	.submitButton {
-		font-size: 16px; /* Уменьшаем размер шрифта */
-		padding: 15px 30px; /* Уменьшаем отступы */
+		font-size: 16px;
+		padding: 15px 30px;
 	}
 }
 
-/* Дополнительные стили для очень маленьких экранов */
 @media (max-width: 360px) {
 	.logo {
-		height: 35px; /* Еще меньше логотип */
+		height: 35px;
 	}
 
 	.menuButton3D {
-		height: 45px; /* Еще меньше кнопка */
-		padding: 0 10px; /* Меньше отступы */
-		font-size: 12px; /* Меньше шрифт */
+		height: 45px;
+		padding: 0 10px;
+		font-size: 12px;
 	}
 
 	.navLink {
-		font-size: 20px; /* Меньше размер пунктов меню */
+		font-size: 20px;
 	}
 }
 

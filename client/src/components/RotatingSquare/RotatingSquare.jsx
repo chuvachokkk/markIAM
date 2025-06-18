@@ -22,9 +22,6 @@ export default function RotatingSquare() {
 
 	return (
 		<div className={styles.container} data-testid='rotating-square-container'>
-			<div className={styles.textLeft} data-testid='text-left'>
-				I AM YOUR DIGITAL DNA
-			</div>
 			<div
 				className={styles.square}
 				data-testid='rotating-square'

@@ -16,7 +16,6 @@ const About = () => {
 							</div>
 							<div className='member-info'>
 								<h3>Марк Темерязев</h3>
-								{/* <p className='member-role'>Генеральный директор</p> */}
 								<p className='member-description'>
 									Основатель компании I am, стратег и вдохновитель команды.
 									Отвечает за стратегическое развитие компании, контроль
@@ -33,7 +32,6 @@ const About = () => {
 							</div>
 							<div className='member-info'>
 								<h3>Иван Первых</h3>
-								{/* <p className='member-role'>FullStack Developer</p> */}
 								<p className='member-description'>
 									Руководит командой разработчиков с душой и вниманием к
 									деталям. Не просто пишет код, а создаёт решения, которые

@@ -15,7 +15,7 @@ export default function Footer() {
 					</div>
 					<div className={styles.section}>
 						<h3>Контакты</h3>
-						<p>Email: твояПочта@gmail.com</p>
+						<p>Email: Flashnemo@yandex.ru</p>
 						<p>Телефон: +7 (914) 684-02-20</p>
 					</div>
 					<div className={styles.section}>

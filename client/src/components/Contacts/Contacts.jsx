@@ -113,58 +113,36 @@ export default function Contacts() {
 					<div className={styles.contactInfo}>
 						<div className={styles.contactItem}>
 							<h3>Телефон</h3>
-							<a href='tel:+79001234567'>тут номер телефона какой хочешь</a>
+							<a href='tel:+79001234567'>+7 (914) 684-02-20</a>
 						</div>
 
 						<div className={styles.contactItem}>
 							<h3>Email</h3>
-							<a href='mailto:info@iamdigital.ru'>рабочая почта</a>
+							<a href='mailto:info@iamdigital.ru'>Flashnemo@yandex.ru</a>
 						</div>
 
 						<div className={styles.contactItem}>
 							<h3>Telegram</h3>
 							<a
-								href='https://t.me/iamdigital'
+								href='https://t.me/Flashnemo666'
 								target='_blank'
 								rel='noopener noreferrer'
 							>
-								рабочая телега
+								@Flashnemo666
 							</a>
 						</div>
 
 						<div className={styles.contactItem}>
 							<h3>WhatsApp</h3>
 							<a
-								href='https://wa.me/79001234567'
+								href='https://wa.me/+79146840220'
 								target='_blank'
 								rel='noopener noreferrer'
 							>
-								востап если нужно
+								+7 (914) 684-02-20
 							</a>
 						</div>
 					</div>
-
-					{/* <div className={styles.socialLinks}>
-						<h3>Мы в соцсетях</h3>
-						<div className={styles.socialIcons}>
-							<a
-								href='https://resizer.mail.ru/p/27f0c6d2-2356-582a-ba18-86e4179e3baf/AQAKtGokfHsOCspRWkFDxEZuTnmgrDoZKtoESVE9S4qmBw6eMBAiSHVbHtPHgkzDh-gvye9mX0ebEHEbHwKSSO1xsxM.webp'
-								target='_blank'
-								rel='noopener noreferrer'
-								className={styles.socialIcon}
-							>
-								VK
-							</a>
-							<a
-								href='https://resizer.mail.ru/p/27f0c6d2-2356-582a-ba18-86e4179e3baf/AQAKtGokfHsOCspRWkFDxEZuTnmgrDoZKtoESVE9S4qmBw6eMBAiSHVbHtPHgkzDh-gvye9mX0ebEHEbHwKSSO1xsxM.webp'
-								target='_blank'
-								rel='noopener noreferrer'
-								className={styles.socialIcon}
-							>
-								TG
-							</a>
-						</div>
-					</div> */}
 				</div>
 
 				<div className={styles.formSection}>

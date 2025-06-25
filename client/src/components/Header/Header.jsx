@@ -20,6 +20,17 @@ export default function Header() {
 	})
 
 	useEffect(() => {
+		if (menuOpen) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = 'unset'
+		}
+		return () => {
+			document.body.style.overflow = 'unset'
+		}
+	}, [menuOpen])
+
+	useEffect(() => {
 		if (notification.show) {
 			const timer = setTimeout(() => {
 				setNotification(prev => ({ ...prev, show: false }))
@@ -131,6 +142,12 @@ export default function Header() {
 						</div>
 					</div>
 					<nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
+						<button
+							className={styles.closeMenuButton}
+							onClick={() => setMenuOpen(false)}
+						>
+							✕
+						</button>
 						<Link
 							to='/services'
 							className={styles.navLink}

@@ -49,6 +49,25 @@
 	pointer-events: auto;
 }
 
+.menuBackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(5px);
+	z-index: 998;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.menuBackdrop.active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 .contactFormOverlay {
 	position: fixed;
 	top: 0;
@@ -270,24 +289,62 @@
 }
 
 @media (max-width: 768px) {
-	.logo {
-		height: 40px;
-	}
-
-	.nav {
-		gap: 15px;
-	}
-
-	.nav.active {
-		max-width: 600px;
-	}
-
-	.navLink {
-		font-size: 12px;
+	.header {
+		padding: 10px 0;
 	}
 
 	.headerContainer {
 		padding: 0 10px;
+		justify-content: space-between;
+	}
+
+	.logo {
+		height: 50px;
+	}
+
+	.logoMenuGroup {
+		gap: 10px;
+	}
+
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(5px);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+		padding: 20px;
+		z-index: 999;
+		max-width: none;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.nav.active {
+		opacity: 1;
+		pointer-events: auto;
+		max-width: none;
+	}
+
+	.navLink {
+		font-size: 24px;
+		color: #ffffff;
+	}
+
+	.navLink:hover {
+		color: #32cd32;
+	}
+
+	.menuButton3D {
+		height: 50px;
+		padding: 0 15px;
+		font-size: 14px;
 	}
 
 	.contactFormOverlay {
@@ -310,6 +367,44 @@
 	.submitButton {
 		font-size: 16px;
 		padding: 15px 30px;
+	}
+
+	.cubeWrapper {
+		right: 20px;
+		width: 140px;
+		height: 50px;
+	}
+
+	.face {
+		font-size: 12px;
+	}
+
+	.front {
+		transform: rotateX(0deg) translateZ(25px);
+	}
+
+	.top {
+		transform: rotateX(90deg) translateZ(25px);
+	}
+
+	.closeMenuButton {
+		display: block;
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		background: none;
+		border: none;
+		color: #32cd32;
+		font-size: 28px;
+		cursor: pointer;
+		padding: 5px;
+		transition: all 0.3s ease;
+		font-family: 'DlyShirnyh', sans-serif;
+	}
+
+	.closeMenuButton:hover {
+		transform: rotate(90deg);
+		color: #ffffff;
 	}
 }
 
@@ -398,86 +493,6 @@
 	color: #ffffff;
 }
 
-@media (max-width: 414px) {
-	.header {
-		padding: 10px 0;
-	}
-
-	.headerContainer {
-		padding: 0 10px;
-		justify-content: space-between;
-	}
-
-	.logo {
-		height: 40px;
-	}
-
-	.logoMenuGroup {
-		gap: 10px;
-	}
-
-	.nav {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100vh;
-		background: rgba(0, 0, 0, 0.95);
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 30px;
-		padding: 20px;
-		z-index: 99;
-		max-width: none;
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 0.3s ease;
-	}
-
-	.nav.active {
-		opacity: 1;
-		pointer-events: auto;
-	}
-
-	.navLink {
-		font-size: 24px;
-		color: #ffffff;
-	}
-
-	.navLink:hover {
-		color: #32cd32;
-	}
-
-	.menuButton3D {
-		height: 50px;
-		padding: 0 15px;
-		font-size: 14px;
-	}
-
-	.contactFormOverlay {
-		width: 100%;
-		right: -100%;
-		padding: 20px;
-	}
-
-	.contactFormOverlay h2 {
-		font-size: 24px;
-		margin-bottom: 20px;
-	}
-
-	.contactForm input,
-	.contactForm textarea {
-		font-size: 16px;
-		padding: 15px;
-	}
-
-	.submitButton {
-		font-size: 16px;
-		padding: 15px 30px;
-	}
-}
-
 @media (max-width: 360px) {
 	.logo {
 		height: 35px;
@@ -494,6 +509,10 @@
 	}
 }
 
+.closeMenuButton {
+	display: none;
+}
+
 .notification {
 	position: fixed;
 	top: 20px;
@@ -505,7 +524,7 @@
 	color: #ffffff;
 	font-family: 'DlyMalenkih', sans-serif;
 	z-index: 1000;
-	transform: translateX(120%);
+	transform: translateX(250%);
 	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	backdrop-filter: blur(10px);
 	box-shadow: 0 8px 32px rgba(50, 205, 50, 0.1);
@@ -540,10 +559,44 @@
 	.notification {
 		left: 20px;
 		right: 20px;
-		transform: translateY(-120%);
+		transform: translateY(-150%);
 	}
 
 	.notification.active {
 		transform: translateY(0);
+	}
+}
+
+@media (max-width: 400px) {
+	.headerContainer {
+		padding: 0 4px;
+	}
+	.logo {
+		height: 48px;
+	}
+	.menuButton3D {
+		height: 48px;
+		padding: 0 6px;
+		font-size: 15px;
+	}
+	.cubeWrapper {
+		height: 48px;
+		width: 120px;
+		right: 8px;
+	}
+	.face {
+		font-size: 12px;
+		padding: 0 2px;
+	}
+	.front {
+		transform: rotateX(0deg) translateZ(24px);
+	}
+	.top {
+		transform: rotateX(90deg) translateZ(24px);
+	}
+	.closeMenuButton {
+		top: 10px;
+		right: 10px;
+		font-size: 22px;
 	}
 }

@@ -145,6 +145,7 @@ export default function Header() {
 						<button
 							className={styles.closeMenuButton}
 							onClick={() => setMenuOpen(false)}
+							aria-label='Закрыть меню'
 						>
 							✕
 						</button>

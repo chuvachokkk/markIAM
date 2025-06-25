@@ -3,7 +3,7 @@
 	color: #fff;
 	min-height: 100vh;
 	padding: 2rem;
-	margin-top: 110px;
+	padding-top: var(--header-height);
 }
 
 .content {
@@ -228,7 +228,7 @@
 @media (max-width: 768px) {
 	.container {
 		padding: 1rem;
-		margin-top: 80px;
+		padding-top: var(--header-height);
 	}
 
 	.content {
@@ -251,7 +251,7 @@
 	.notification {
 		left: 20px;
 		right: 20px;
-		transform: translateY(-120%);
+		transform: translateY(-150%);
 	}
 
 	.notification.active {

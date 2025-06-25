@@ -1,0 +1,8 @@
+:root {
+	--header-height: 150px;
+}
+@media (max-width: 768px) {
+	:root {
+		--header-height: 100px;
+	}
+}

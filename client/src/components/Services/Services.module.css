@@ -3,7 +3,7 @@
 	color: #fff;
 	min-height: 100vh;
 	padding: 2rem;
-	margin-top: 111px;
+	padding-top: var(--header-height);
 }
 
 .serviceSection {
@@ -375,7 +375,7 @@
 @media (max-width: 768px) {
 	.container {
 		padding: 1rem;
-		margin-top: 80px;
+		padding-top: var(--header-height);
 	}
 
 	.serviceSection {
